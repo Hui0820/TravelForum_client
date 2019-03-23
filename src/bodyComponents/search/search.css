@@ -1,0 +1,12 @@
+.searchInfo{
+    width:80% !important;
+    margin: 0 auto;
+}
+
+.keyword{
+    color:red;
+}
+
+.feedbackMsg{
+    margin-top:10px !important;
+}

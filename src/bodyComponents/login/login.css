@@ -1,0 +1,44 @@
+.loginWrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 5%;
+    background: gray;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.loginForm {
+    width: 25%;
+    height: 60%;
+    padding: 20px 50px;
+    background: #eee;
+    box-shadow: 0 0 8px rgb(0, 0, 0);
+    border-radius: 5px;
+    margin: 100px auto;
+    border: 1px solid grey;
+}
+
+.formItem {
+    margin-bottom: 10px !important;
+}
+
+.formItemSubmit {
+    margin-top: 20px !important;
+}
+
+.signInForm {
+    margin-top: 15%;
+}
+
+.signUpForm{
+    margin-top:10%;
+}
+
+.err-msg{
+    color:red;
+    text-align: center;
+    font-size: 120%;
+    font-family: sans-serif;
+}

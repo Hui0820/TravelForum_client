@@ -1,0 +1,24 @@
+{
+    "success": true,
+    "data": [
+      {
+        "id": 1,
+        "slide_imgUrl": "https://b4-q.mafengwo.net/s13/M00/34/AC/wKgEaVxtQmeAAysLAATOUOAVOg899.jpeg?imageMogr2%2Finterlace%2F1",
+        "slide_title": "Life Is A Journey, Stories Are Our Mile Markers",
+        "user_name": "duckula"
+      },
+      {
+        "id": 2,
+        "slide_imgUrl": "https://p3-q.mafengwo.net/s13/M00/96/3D/wKgEaVxwFIWAML0lAAnBNtTFcWc23.jpeg?imageMogr2%2Finterlace%2F1",
+        "slide_title": "The Longest Way Home",
+        "user_name": "Vincent_chen_cc"
+      },
+      {
+        "id": 3,
+        "slide_imgUrl": "https://pic.qyer.com/public/home/focus/2019/02/21/15507344495648?imageMogr2/interlace/1|imageslim",
+        "slide_title": "Explore With Emotion. Live For The Journey",
+        "user_name": "RCandCY"
+      }
+      
+    ]
+  }

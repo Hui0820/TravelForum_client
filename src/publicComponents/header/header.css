@@ -1,0 +1,13 @@
+.header_nav {
+    font-size: 120%;
+    font-family: sans-serif;
+}
+
+.header_menu{
+    /*position:fixed;*/
+    /*left:0;*/
+    /*top:0;*/
+    width:100%;
+    z-index: 9;
+
+}
