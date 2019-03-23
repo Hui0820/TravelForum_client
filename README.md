@@ -1,6 +1,6 @@
-Type: Travel Forum Web Application Project
+Name: Travel Forum Web Application Project
 
-Author: Xiong Li, Hui Sun
+Author: Hui Sun, Xiong Li
 
 This project is to develop a trip diary sharing platform web application based on React/Redux on client side, Express and MongoDB on server side, including the following functionalities:
 - account management: 
