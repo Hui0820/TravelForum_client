@@ -1,4 +1,4 @@
-Name: Travel Forum Web Application Project
+# Travel Forum Web Application Project
 
 Author: Hui Sun, Xiong Li
 
