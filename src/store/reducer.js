@@ -15,7 +15,7 @@ const reducer = combineReducers({
 	home: homeReducer,
 	detail:detailReducer,
 	search:searchReducer,
-	setting:settingReducer,	
+	setting:settingReducer
 });
 
 export default reducer;

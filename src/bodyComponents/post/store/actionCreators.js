@@ -38,7 +38,7 @@ export const handlePostOkAction = (postData,diaryCardList) => {
 			const result = response.data.data;
 			const newPostData = {
 				id: result.post_id,
-				cover_imgUrl: result.cover_imgURL,
+				cover_imgURL: result.cover_imgURL,
 				user_imgUrl: result.avatar,
 				title: result.post_title,
 				author: result.username,

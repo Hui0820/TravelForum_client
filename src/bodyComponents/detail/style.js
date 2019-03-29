@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DetailWrapper = styled.div`
-  width:90%;
+  width:70%;
   margin:0 auto;
   over-flow:hidden; 
   padding-bottom:100px;
@@ -20,12 +20,12 @@ export const DetailContent = styled.div`
   color:#2f2f2f;
   margin-bottom:5%;
   img{
-    width:60%;
-    margin:2% 20%;
+    width:600px !important;
+    height:400px !important;
+    margin:6% 15%;
+    display:flex;
   }
-  
   p{
-    margin:25px 0;
     font-size:16px;
     line-height:30px;
   }

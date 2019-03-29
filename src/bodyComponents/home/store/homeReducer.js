@@ -1,4 +1,4 @@
-import {fromJS, toJS} from "immutable";
+import {fromJS} from "immutable";
 import {constants} from ".";
 import {constants as postConstants} from '../../post/store';
 
@@ -21,7 +21,6 @@ export default (state = defaultHomeState, action) => {
 		case constants.RENEW_PHOTO_SLIDE_LIST:
 			return state.set('photoSlideList', action.data);
 		case postConstants.RENEW_CARDLIST:
-			console.log(action.data);
 			return state.set('diaryCardList', action.data);
 		default:
 			return state;

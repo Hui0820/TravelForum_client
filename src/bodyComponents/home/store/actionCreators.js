@@ -17,10 +17,17 @@ const renewPhotoSlideList = (data)=>({
 
 export const handleGetCardsAction = ()=>{
 	return (dispatch) =>{
-		axios.get('api/diaryCard.json').then((res)=>{
+		// axios.get('api/diaryCard.json').then((res)=>{
+		// 	const data = res.data.data;
+		// 	console.log(data);
+		// 	dispatch(renewDiaryCardList(data));
+		// }).catch((err)=>{
+		// 	console.log(err);
+		// })
+		axios.get('/fetchAll').then((res)=>{
 			const data = res.data.data;
-			console.log(data);
 			dispatch(renewDiaryCardList(data));
+
 		}).catch((err)=>{
 			console.log(err);
 		})
