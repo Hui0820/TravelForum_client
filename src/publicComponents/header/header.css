@@ -1,13 +1,27 @@
-.header_nav {
-    font-size: 120%;
-    font-family: sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Lobster|Poppins');
+
+.header_menu{
+    font-family: 'Poppins', sans-serif;
+    font-size: 11pt;
+}
+
+.logo{
+    font-family: 'Lobster', cursive;
+    font-size: 20pt;
+}
+
+.logo:hover{
+    text-decoration: none !important;
+}
+
+.home:hover{
+    text-decoration: none !important;
 }
 
 .header_menu{
-    /*position:fixed;*/
-    /*left:0;*/
-    /*top:0;*/
+    position:fixed;
+    left:0;
+    top:0;
     width:100%;
     z-index: 9;
-
 }

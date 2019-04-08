@@ -12,7 +12,9 @@ const getDetail = (data) =>({
 		views:data.views,
 		likes:data.likes,
 		comments:data.comments,
-		post_time:moment(data.post_time).format('lll')
+		post_time:moment(data.post_time).format('lll'),
+		avatar:data.avatar,
+		user_id:data.user_id
 	}
 })
 
@@ -26,6 +28,7 @@ export const getDetailAction =(id)=>{
 
 		axios.get("/detail/" +id).then((res)=>{
 			const result = res.data;
+			console.log(result);
 			dispatch(getDetail(result));
 		})
 	}

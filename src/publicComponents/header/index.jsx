@@ -6,6 +6,7 @@ import { Link, withRouter } from "react-router-dom";
 import { Menu, Icon, Input, Avatar, Badge } from "antd";
 import { Logo } from "./style";
 import { actionCreators } from "./store";
+import { actionCreators as messageActionCreators } from "../../bodyComponents/message/store";
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -16,11 +17,10 @@ class Header extends Component {
     searchVal: ""
   };
 
-  componentWillMount() {
+  componentDidMount() {
     if (Cookies.get("userid")) {
       this.props.setLogin();
     }
-
     this.props.handleUpdateAvatar(Cookies.get("userid"));
   }
 
@@ -33,7 +33,13 @@ class Header extends Component {
   handleLogout = function() {
     const { handleLogout } = this.props;
     handleLogout();
+    Cookies.remove("userid");
     this.props.history.push("/login");
+  };
+
+  handleAuthorInfo = function() {
+    console.log(Cookies.get("userid"));
+    // this.props.history.push("/author/" + Cookies.get("userid"));
   };
 
   render() {
@@ -41,14 +47,16 @@ class Header extends Component {
     return (
       <Menu mode="horizontal" theme="dark" className="header_menu">
         <Menu.Item key="logo">
-          <Link to="/">
-            <Logo />
+          <Link to="/" className="logo">
+            Tripinterest
           </Link>
         </Menu.Item>
         <Menu.Item key="home">
-          <Link to="/">Home</Link>
+          <Link className="home" to="/">
+            Home
+          </Link>
         </Menu.Item>
-        <Menu.Item key="diary">Daries</Menu.Item>
+        <Menu.Item key="diary">Diary</Menu.Item>
         <SubMenu
           title={<span className="submenu-title-wrapper">Destination</span>}
         >
@@ -62,7 +70,7 @@ class Header extends Component {
           </MenuItemGroup>
         </SubMenu>
         <Menu.Item key="community">Community</Menu.Item>
-        <Menu.Item key="searchBox" style={{ marginLeft: "30%" }}>
+        <Menu.Item key="searchBox" style={{ marginLeft: "10%" }}>
           <Search
             placeholder="search"
             style={{ width: 200 }}
@@ -76,6 +84,23 @@ class Header extends Component {
             Post
           </Link>
         </Menu.Item>
+
+        <SubMenu
+          title={
+            <Badge count={8}>
+              <Icon type="message" style={{ fontSize: 20 }} />
+              Message
+            </Badge>
+          }
+        >
+          <MenuItemGroup title="">
+            <Menu.Item key="setting:likes">Likes</Menu.Item>
+            <Menu.Item key="setting:private_message">
+              <Badge count={8}>Message</Badge>
+            </Menu.Item>
+          </MenuItemGroup>
+        </SubMenu>
+
         {!isLogin ? (
           <Menu.Item key="login">
             <Link to="/login">
@@ -86,19 +111,15 @@ class Header extends Component {
           <SubMenu
             title={
               <span style={{ marginRight: 24 }}>
-                <Badge count={8}>
+                <Link to={"/author/" + Cookies.get("userid")}>
                   <Avatar src={avatar} />
-                </Badge>
+                </Link>
               </span>
             }
           >
             <MenuItemGroup title="Article">
               <Menu.Item key="setting:1">My Article</Menu.Item>
               <Menu.Item key="setting:2">My Favorite</Menu.Item>
-            </MenuItemGroup>
-            <MenuItemGroup title="Comment">
-              <Menu.Item key="setting:3">Likes</Menu.Item>
-              <Menu.Item key="setting:4">@Me</Menu.Item>
             </MenuItemGroup>
             <MenuItemGroup title="Setting">
               <Menu.Item key="setting:5">
@@ -139,6 +160,9 @@ const mapDispatchToProps = dispatch => {
     },
     handleUpdateAvatar(userid) {
       dispatch(actionCreators.handleUpdateAvatarAction(userid));
+    },
+    openMessageDrawer(visible) {
+      dispatch(messageActionCreators.toggleMessageDrawerAction(visible));
     }
   };
 };

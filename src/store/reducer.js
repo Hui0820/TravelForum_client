@@ -6,6 +6,9 @@ import {homeReducer} from "../bodyComponents/home/store";
 import {detailReducer} from "../bodyComponents/detail/store";
 import {searchReducer} from "../bodyComponents/search/store";
 import {settingReducer} from "../publicComponents/setting/store";
+import {messageReducer} from "../bodyComponents/message/store";
+import {authorReducer} from "../bodyComponents/author/store";
+
 
 //guarantee the state is immutable
 const reducer = combineReducers({
@@ -15,7 +18,9 @@ const reducer = combineReducers({
 	home: homeReducer,
 	detail:detailReducer,
 	search:searchReducer,
-	setting:settingReducer
+	setting:settingReducer,
+	message:messageReducer,
+	author:authorReducer
 });
 
 export default reducer;

@@ -2,7 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { actionCreators } from "./store";
 import { withRouter } from "react-router-dom";
-import { DetailWrapper, DetailTitle, DetailContent } from "./style";
+import { Link } from "react-router-dom";
+import {
+  DetailWrapper,
+  DetailTitle,
+  DetailContent,
+  DetailAuthor,
+  DetailAuthorInfo
+} from "./style";
+import { Avatar, Icon } from "antd";
 import CommentBox from "./components/comment";
 
 class Detail extends Component {
@@ -11,7 +19,23 @@ class Detail extends Component {
     return (
       <DetailWrapper>
         <DetailTitle>{article.post_title}</DetailTitle>
-
+        <DetailAuthor>
+          <Link to={"/author/" + article.user_id}>
+            <Avatar src={article.avatar} size="large" className="icon" />
+          </Link>
+          <DetailAuthorInfo>
+            <Link to={"/author/" + article.user_id}>{article.author} </Link>
+            <div>
+              {article.post_time}
+              <Icon type="eye" className="Icon" />
+              {article.views}
+              <Icon type="message" className="Icon" />
+              {article.comments}
+              <Icon type="like" className="Icon" />
+              {article.likes}
+            </div>
+          </DetailAuthorInfo>
+        </DetailAuthor>
         <DetailContent
           dangerouslySetInnerHTML={{ __html: article.post_content }}
         />
@@ -22,6 +46,7 @@ class Detail extends Component {
 
   componentDidMount() {
     //if this component is the Router component, we can get the id from this.props.match.params
+    //Get the id from the router
     this.props.getDetail(this.props.match.params.id);
   }
 }

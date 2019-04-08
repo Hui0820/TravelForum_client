@@ -1,5 +1,6 @@
 import {constants} from ".";
 import axios from 'axios';
+import { actionCreators as headerActionCreators } from "../../../publicComponents/header/store";
 
 //sync the producer
 const errMsg = (msg) => ({
@@ -77,9 +78,11 @@ export const handleLoginAction = (user) => {
 				password: password
 			}).then((res) => {
 				const result = res.data;
+				console.log(result);
 				if (result.code) {					
 					dispatch(loginSuccess(result.data));
 					dispatch(modifyLoginStatus());
+					dispatch(headerActionCreators.handleUpdateAvatarAction(result.data.avatar));
 				} else {
 					dispatch(errLoginMsg(result.loginMsg));
 				}

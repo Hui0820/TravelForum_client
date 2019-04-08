@@ -13,7 +13,6 @@ export const DetailTitle = styled.div`
   font-size:34px;
   color:#333;
   font-weight:bold;
-  text-align:center;
 `;
 
 export const DetailContent = styled.div`
@@ -28,5 +27,31 @@ export const DetailContent = styled.div`
   p{
     font-size:16px;
     line-height:30px;
+  }
+`;
+
+export const DetailAuthor = styled.div`
+  width:50%;
+  margin: 3% 0;
+  display:flex;
+  justify-content:space-between;
+  
+`;
+
+export const DetailAuthorInfo = styled.div`
+  
+  width:85%;
+  display:flex;
+  justify-content:space-between;
+  flex-direction:column;
+  cursor:pointer;
+  div{
+    font-size:10px;
+    flex-direction:row;
+    display:flex;
+    justify-content:flext-start;
+  }
+  .Icon{
+    margin:0 10px;
   }
 `;

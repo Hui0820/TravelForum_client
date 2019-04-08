@@ -10,14 +10,15 @@ const defaultDetailState = fromJS({
 		views:0,
 		likes:0,
 		comments:0,
-		post_time:0
+		post_time:0,
+		avatar:"",
+		user_id:""	
 	}
 });
 
 export default (state=defaultDetailState,action) =>{
 	switch (action.type) {
 		case constants.GET_DETAIL:
-			console.log(action.data);
 			return state.set("article",action.data)
 		default:
 			return state;

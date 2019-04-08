@@ -1,12 +1,8 @@
 .loginWrapper {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 5%;
-    background: gray;
+    /* background: gray; */
     z-index: 0;
     overflow: hidden;
+
 }
 
 .loginForm {
@@ -17,7 +13,7 @@
     box-shadow: 0 0 8px rgb(0, 0, 0);
     border-radius: 5px;
     margin: 100px auto;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
 }
 
 .formItem {
@@ -32,12 +28,12 @@
     margin-top: 15%;
 }
 
-.signUpForm{
-    margin-top:10%;
+.signUpForm {
+    margin-top: 10%;
 }
 
-.err-msg{
-    color:red;
+.err-msg {
+    color: red;
     text-align: center;
     font-size: 120%;
     font-family: sans-serif;

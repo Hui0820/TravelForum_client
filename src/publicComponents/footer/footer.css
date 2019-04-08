@@ -1,50 +1,53 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster|Poppins');
 
-.icon{
+.icon {
     color: #888888 !important;
 }
 
-.icon:hover{
+.icon:hover {
     color: #ffffff !important;
     text-decoration: none !important;
 }
 
-.title{
-    font-size: 32pt;
+.title {
+    font-size: 24pt;
 }
 
-.title:hover{
+.title:hover {
     color: #ffffff !important;
     text-decoration: none !important;
 }
 
-.email{
-    color: #888888 !important;
-    font-size: 12pt;
-}
-
-.email:hover{
-    color: #ffffff !important;
-    text-decoration: none !important;
-}
-
-.github{
+.email {
     color: #888888 !important;
     font-size: 12pt;
 }
 
-.github:hover{
+.email:hover {
     color: #ffffff !important;
     text-decoration: none !important;
 }
 
-.footer-copyright a{
+.github {
+    color: #888888 !important;
+    font-size: 12pt;
+}
+
+.github:hover {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+.footer-copyright a {
     color: #888888 !important;
 }
 
-.footer-copyright a:hover{
+.footer-copyright a:hover {
     color: #ffffff !important;
 }
 
+.mdbfooter {
+    margin: 0;
+    padding: 0;
 
-
+}

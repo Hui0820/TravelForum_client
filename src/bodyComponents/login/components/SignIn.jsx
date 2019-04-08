@@ -3,6 +3,8 @@ import {Form, Icon, Input, Button} from "antd";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {actionCreators} from '../store';
+import {actionCreators as headerActionCreators} from '../../../publicComponents/header/store';
+import Cookies from "js-cookie";
 
 class SignIn extends Component {
 	constructor(props) {
@@ -82,7 +84,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		handleLogin(user) {
-			dispatch(actionCreators.handleLoginAction(user));
+		    dispatch(actionCreators.handleLoginAction(user));
 		},
 		clearMsg() {
 			dispatch(actionCreators.handleClearMsgAction())

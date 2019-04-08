@@ -55,7 +55,7 @@ class RichText extends Component {
       /<img[\s]*src=[\s]*[\'\"]?([^\'\"]*)\.(jpg|png|gif|svg|webp|bmp)/gi
     );
     let newImgURLArr = [];
-    if (imgUrlList){    
+    if (imgUrlList) {
       imgUrlList.map((item, index) => {
         newImgURLArr.push(item.substring(item.indexOf("http"), item.length));
       });
@@ -64,16 +64,19 @@ class RichText extends Component {
   };
 
   handlePostOk = () => {
-    const {diaryCardList} = this.props;
+    const { diaryCardList } = this.props;
     this.setState({
       showRichText: false
     });
-    this.props.handlePostOk({
-      title: this.state.postTitle,
-      tags: this.props.tagsList,
-      content: this.state.postContent,
-      postImgUrl: this.state.postImgUrl
-    },diaryCardList);
+    this.props.handlePostOk(
+      {
+        title: this.state.postTitle,
+        tags: this.props.tagsList,
+        content: this.state.postContent,
+        postImgUrl: this.state.postImgUrl
+      },
+      diaryCardList
+    );
     this.props.history.replace("/");
   };
 
@@ -103,7 +106,6 @@ class RichText extends Component {
           title="Your story on your trip"
           visible={this.state.showRichText}
           onCancel={() => {
-            console.log(this.state.postContent);
             this.setState({
               showRichText: false
             });
@@ -131,12 +133,12 @@ class RichText extends Component {
 
 const mapStateToProps = state => ({
   tagsList: state.getIn(["post", "tagsList"]),
-  diaryCardList:state.getIn(["home","diaryCardList"])
+  diaryCardList: state.getIn(["home", "diaryCardList"])
 });
 
 const mapDispatchToProps = dispatch => ({
-  handlePostOk(postData,diaryCardList) {
-    dispatch(actionCreators.handlePostOkAction(postData,diaryCardList));
+  handlePostOk(postData, diaryCardList) {
+    dispatch(actionCreators.handlePostOkAction(postData, diaryCardList));
   }
 });
 
