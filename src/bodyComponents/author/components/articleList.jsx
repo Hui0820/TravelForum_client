@@ -13,7 +13,6 @@ export default class ArticleList extends Component {
 
   render() {
     const { articles } = this.props;
-    console.log(articles);
 
     return (
       <Container className="searchInfo">

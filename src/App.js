@@ -13,29 +13,35 @@ import Detail from "./bodyComponents/detail";
 import Setting from "./publicComponents/setting";
 import Search from "./bodyComponents/search";
 import Author from "./bodyComponents/author";
+import Message from "./bodyComponents/message";
+import Chat from "./bodyComponents/message/components/chat";
+import {Layout} from 'antd';
 
-import "./testSocketio/socketio_test";
 
 class App extends Component {
-	render() {
-		return (
-			<Provider store={store}>
-				<BrowserRouter>
-					<Fragment>
-						<Header/>
-						<Route path="/" exact component={Home}/>
-						<Route path="/login" exact component={Login}/>
-						<Route path="/post" exact component={Post}/>
-						<Route path="/detail/:id" exact component={Detail}/>
-						<Route path="/setting" exact component={Setting}/>
-						<Route path="/search" exact component={Search}/>
-            			<Route path="/author/:user_id" exact component={Author} />
-						<Footer/>
-					</Fragment>
-				</BrowserRouter>
-			</Provider>
-		);
-	}
+    render() {
+        return (
+            <Provider store={store}>
+                <BrowserRouter>
+                    <Fragment>
+                        <Layout.Header><Header/></Layout.Header>
+                        <Layout.Content>
+                            <Route path="/" exact component={Home}/>
+                            <Route path="/login" exact component={Login}/>
+                            <Route path="/post" exact component={Post}/>
+                            <Route path="/detail/:id" exact component={Detail}/>
+                            <Route path="/setting" exact component={Setting}/>
+                            <Route path="/search" exact component={Search}/>
+                            <Route path="/author/:user_id" exact component={Author}/>
+                            <Route path="/message" exact component={Message}/>
+                            <Route path="/chat/:userid" exact component={Chat}/>
+                        </Layout.Content>
+                        <Layout.Footer className="col-md-12"><Footer/></Layout.Footer>
+                    </Fragment>
+                </BrowserRouter>
+            </Provider>
+        );
+    }
 }
 
 export default App;

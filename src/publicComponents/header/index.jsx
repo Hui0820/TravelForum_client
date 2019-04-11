@@ -4,7 +4,6 @@ import Cookies from "js-cookie";
 import "./header.css";
 import { Link, withRouter } from "react-router-dom";
 import { Menu, Icon, Input, Avatar, Badge } from "antd";
-import { Logo } from "./style";
 import { actionCreators } from "./store";
 import { actionCreators as messageActionCreators } from "../../bodyComponents/message/store";
 
@@ -87,16 +86,20 @@ class Header extends Component {
 
         <SubMenu
           title={
-            <Badge count={8}>
-              <Icon type="message" style={{ fontSize: 20 }} />
-              Message
-            </Badge>
+            <Link to="/message">
+              <Badge count={2}>
+                <Icon type="message" style={{ fontSize: 20 }} />
+                Message
+              </Badge>
+            </Link>
           }
         >
           <MenuItemGroup title="">
             <Menu.Item key="setting:likes">Likes</Menu.Item>
             <Menu.Item key="setting:private_message">
-              <Badge count={8}>Message</Badge>
+              <Link to="/message">
+                <Badge count={2}>Message</Badge>
+              </Link>
             </Menu.Item>
           </MenuItemGroup>
         </SubMenu>

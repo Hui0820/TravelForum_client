@@ -5,8 +5,6 @@ import PropTypes from "prop-types";
 import { get } from "immutable";
 import { actionCreators } from "../store";
 
-const { TextArea } = Input;
-
 class MessageModal extends Component {
   static propTypes = {
     articles: PropTypes.array.isRequired
@@ -14,6 +12,7 @@ class MessageModal extends Component {
 
   handleOk = () => {
     const { handleMsgWinShow } = this.props;
+    console.log(this.input.value);
     handleMsgWinShow(false);
   };
 
@@ -33,7 +32,11 @@ class MessageModal extends Component {
           onCancel={this.handleCancel.bind(this)}
           okText="Send"
         >
-          <TextArea rows={4} />
+          <textArea
+            rows={4}
+            ref={input => (this.input = input)}
+            className="col-12"
+          />
         </Modal>
       </div>
     );
