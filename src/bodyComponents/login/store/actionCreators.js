@@ -1,6 +1,8 @@
 import {constants} from ".";
 import axios from 'axios';
 import { actionCreators as headerActionCreators } from "../../../publicComponents/header/store";
+import {actionCreators as messageActionCreators} from "../../message/store";
+
 
 //sync the producer
 const errMsg = (msg) => ({
@@ -32,6 +34,11 @@ const clearMsg = () => ({
 	type: constants.CLEAR_MSG
 })
 
+const renewLoginUser = (user)=>({
+	type:constants.RENEW_LOGIN_USER,
+	data:user
+})
+
 export const handleClearMsgAction = () => {
 	return dispatch => {
 		dispatch(clearMsg());
@@ -56,6 +63,7 @@ export const handleRegisterAction = (user) => {
 				if (result.code) {
 					dispatch(authSuccess(result.data));
 					dispatch(modifyLoginStatus());
+					messageActionCreators.getMsgList(dispatch,result.data._id);
 				} else {
 					dispatch(errMsg(result.registerMsg));
 				}
@@ -78,11 +86,13 @@ export const handleLoginAction = (user) => {
 				password: password
 			}).then((res) => {
 				const result = res.data;
-				console.log(result);
+				console.log("USER",result);
 				if (result.code) {					
 					dispatch(loginSuccess(result.data));
 					dispatch(modifyLoginStatus());
 					dispatch(headerActionCreators.handleUpdateAvatarAction(result.data.avatar));
+					dispatch(renewLoginUser(result.data));
+					messageActionCreators.getMsgList(dispatch,result.data._id);
 				} else {
 					dispatch(errLoginMsg(result.loginMsg));
 				}

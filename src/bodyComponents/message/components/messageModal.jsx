@@ -13,7 +13,9 @@ class MessageModal extends Component {
   handleOk = () => {
     const { handleMsgWinShow } = this.props;
     console.log(this.input.value);
+
     handleMsgWinShow(false);
+    this.input.value ='';
   };
 
   handleCancel = () => {
@@ -32,7 +34,7 @@ class MessageModal extends Component {
           onCancel={this.handleCancel.bind(this)}
           okText="Send"
         >
-          <textArea
+          <textarea
             rows={4}
             ref={input => (this.input = input)}
             className="col-12"

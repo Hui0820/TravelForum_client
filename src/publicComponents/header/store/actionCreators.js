@@ -1,7 +1,10 @@
 import { constants as postConstants } from "../../../bodyComponents/post/store";
 import {constants as headerconstants} from '.';
 import axios from 'axios';
-// import { fromJS } from "immutable";
+import {constants} from "../../../bodyComponents/login/store";
+import {constants as loginConstants} from "../../../bodyComponents/login/store";
+import {actionCreators as messageActionCreators} from "../../../bodyComponents/message/store";
+
 
 const updateAvatar = (data) => {
   return {
@@ -9,6 +12,12 @@ const updateAvatar = (data) => {
     data
   }
 }
+
+const renewLoginUser = (user)=>({
+  type:loginConstants.RENEW_LOGIN_USER,
+  data:user
+})
+
 
 const errMsg = (msg) => {
   return {
@@ -48,7 +57,6 @@ export const handleUpdateAvatarAction = (userid)=>{
       userid
     }).then(response => {
       const result = response.data;
-      console.log(result);
       if (result.code){
         dispatch(updateAvatar(result.data));
       } else {
@@ -57,5 +65,21 @@ export const handleUpdateAvatarAction = (userid)=>{
     })
   }
 }
+
+export const handleUpdateLoginUserAction = (userid)=>{
+  return (dispatch) => {
+    axios.post('/getuser', {
+      userid
+    }).then(response => {
+      const result = response.data;
+      if (result.code){
+        dispatch(renewLoginUser(result.data));
+        messageActionCreators.getMsgList(dispatch,result.data._id);
+      }
+      
+    })
+  }
+}
+
 
 

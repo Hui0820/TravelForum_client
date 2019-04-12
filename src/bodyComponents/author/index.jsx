@@ -62,7 +62,7 @@ class Author extends Component {
                 {totalViews}
                 <Divider type="vertical" />
                 <span className="icon">
-                  <Icon type="like" theme="twoTone" />
+                  <Icon type="heart" theme="twoTone" />
                 </span>
                 {totalLikes}
                 <Divider type="vertical" />

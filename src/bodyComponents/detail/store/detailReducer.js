@@ -19,7 +19,7 @@ const defaultDetailState = fromJS({
 export default (state=defaultDetailState,action) =>{
 	switch (action.type) {
 		case constants.GET_DETAIL:
-			return state.set("article",action.data)
+			return state.set("article",action.data);
 		default:
 			return state;
 	}

@@ -51,3 +51,15 @@ export const handleGetSlideAction = () => {
 		})
 	}
 }
+
+export const handleSaveArticleAction = (post_id, user_id) => {
+	return (dispatch) => {
+		axios.post("/savearticle", {
+			post_id: post_id,
+			user_id: user_id
+		}).then ((res)=>{
+			const data = res.data;
+			console.log(data);
+		})
+	}
+}

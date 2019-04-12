@@ -6,7 +6,8 @@ const defaultLoginUser = fromJS({
 	username: '',
 	email: '',
 	registerMsg: '',
-	loginMsg:''
+	loginMsg: '',
+	loginUser: {}
 })
 
 export default (state = defaultLoginUser, action) => {
@@ -22,17 +23,18 @@ export default (state = defaultLoginUser, action) => {
 			})
 		case constants.CLEAR_MSG:
 			return state.merge({
-				registerMsg:'',
+				registerMsg: '',
 				loginMsg: ''
 			});
 		case constants.LOGIN_SUCCESS:
 			return state.merge({
-				username:action.data.username,
-				email:action.data.email
+				username: action.data.username,
+				email: action.data.email
 			})
 		case constants.ERROR_LOGINMSG:
-			return state.set('loginMsg',action.data);
-
+			return state.set('loginMsg', action.data);
+		case constants.RENEW_LOGIN_USER:
+			return state.set('loginUser', action.data);
 		default:
 			return state;
 	}

@@ -7,11 +7,7 @@ import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import MessageList from "./components/MessageList";
 
 class Message extends Component {
-  componentDidMount() {
-    const { handleGetUserList } = this.props;
-    handleGetUserList();
-  }
-
+  
   render() {
     return (
       <div className="container wrap">

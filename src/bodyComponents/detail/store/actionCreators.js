@@ -18,18 +18,33 @@ const getDetail = (data) =>({
 	}
 })
 
-export const getDetailAction =(id)=>{
+export const getDetailAction = (id) =>{
 	return (dispatch)=>{
-		// axios.get("/api/detail.json?id=" +id).then((res)=>{
-		// 	const result = res.data.data[id-1];
-		// 	console.log(result);
-		// 	dispatch(getDetail(result));
-		// })
-
 		axios.get("/detail/" +id).then((res)=>{
 			const result = res.data;
-			console.log(result);
 			dispatch(getDetail(result));
+		})
+	}
+}
+
+export const handleUpdateLikeNumAction = (id) => {
+	return (dispatch) => {
+		axios.post("/updatelike", {
+			post_id: id
+		}).then((res)=>{
+			const updateArticle = res.data;			
+			dispatch(getDetail(updateArticle));			
+		})
+	}
+}
+
+export const handleUpdateViewNumAction = (id) => {
+	return (dispatch) => {
+		axios.post("/updateview", {
+			post_id: id
+		}).then((res)=>{
+			const updateArticle = res.data;			
+			dispatch(getDetail(updateArticle));			
 		})
 	}
 }

@@ -4,3 +4,4 @@ export const RENEW_USER_IMG = "PROFILE/RENEW_USER_IMG";
 export const ERROR_MSG	= 'SETTING/ERROR_MSG';
 export const RST_SUCCESS = 'SETTING/RESET_SUCCESS';
 export const CLEAR_MSG = 'SETTING/CLEAR_MSG';
+

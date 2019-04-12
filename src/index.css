@@ -26,9 +26,19 @@ code {
   padding: 0;
 }
 
+.ant-layout-header{
+  flex: 0 0 auto !important;
+}
+
+.ant-layout-content{
+  flex: 1 0 auto !important;
+}
+
+
 .ant-layout-footer{
+  flex: 0 0 auto !important;
   padding:0px;
   margin: 0px;
   background: #000000;
-
 }
+

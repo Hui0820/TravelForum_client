@@ -8,7 +8,8 @@ export const DetailWrapper = styled.div`
 `;
 
 export const DetailTitle = styled.div`
-  margin:50px 0 20px 0;
+  display: inline-block;
+  margin:50px 5% 10px 0;
   line-height:44px;
   font-size:34px;
   color:#333;
@@ -54,4 +55,13 @@ export const DetailAuthorInfo = styled.div`
   .Icon{
     margin:0 10px;
   }
+`;
+
+export const ListNote = styled.div`
+	float:left;
+  margin-top:20px;
+  color:#333;
+  font-size:13px;
+  margin:10px 25px 15px 0;
+  cursor: default;
 `;

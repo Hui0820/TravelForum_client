@@ -9,7 +9,6 @@ export default class MessageList extends Component {
 
     render() {
     const {chatData} = this.props;
-
         return (
             <div>
                 <div className="card mb-12" style={{maxWidth: '100%',margin: "10px 0"}}>
@@ -28,15 +27,12 @@ export default class MessageList extends Component {
                                     <span className="badge badge-primary badge-pill offset-1">14</span>
 
                                 </h5>
-
-
-
                                 <p className="card-text">This is a wider card with supporting text below as a
                                     natural lead-in to additional content. This content is a little bit longer.</p>
                                 <p className="card-text">
                                     <small className="text-muted">Last updated 3 mins ago</small>
                                     <Link to={"/chat/" + "5ca17fb190e7086fd8a5c1ef"}>
-                                    <button type="button" className="btn btn-link offset-2">reply</button>
+                                    <button type="button" className="btn btn-link">reply</button>
                                     </Link>
                                     <button type="button" className="btn btn-link">delete</button>
                                 </p>

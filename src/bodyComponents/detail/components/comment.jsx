@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {
-	Comment, Avatar, Form, Button, List, Input,
-} from 'antd';
+import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 import {connect} from "react-redux";
 

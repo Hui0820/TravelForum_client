@@ -23,12 +23,12 @@ const clearMsg = () => ({
 	type: constants.CLEAR_MSG
 })
 
+
 export const handleClearMsgAction = () => {
 	return dispatch => {
 		dispatch(clearMsg());
 	}
 }
-
 export const handleUploadAction = (blob) => {
     return (dispatch) => {
         //here upload the image to Cloudinary
@@ -44,7 +44,6 @@ export const handleUploadAction = (blob) => {
             },
             data:formData
         }).then(function(res){
-            console.log(res);
             const user_imgUrl = res.data.secure_url;
             axios.post("/profile",{user_imgUrl:user_imgUrl}).then(response=>{
                const resResult = response.data.data;

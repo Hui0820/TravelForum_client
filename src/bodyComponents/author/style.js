@@ -22,7 +22,6 @@ export const AuthorDetailWrapper = styled.div`
     .metaData{
       span{
         margin-right:15px;
-        cursor:pointer;
       }
     }
   }
@@ -31,6 +30,16 @@ export const AuthorDetailWrapper = styled.div`
     .authorBtn{
       margin:5px;
     }
+  }
+`;
+
+export const ListNote = styled.div`
+	float:left;
+  margin-top:20px;
+  color:#333;
+  font-size:13px;
+  span{
+    margin:10px 25px 15px 0;
   }
 `;
 
