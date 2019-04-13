@@ -128,7 +128,9 @@ class Header extends Component {
 							</Menu.Item>
 							
 							
-							<Menu.Item key="setting:2">My Favorite</Menu.Item>
+							<Menu.Item key="setting:2">
+								<Link to={"/favorite/" + loginUser._id}>My Favorite</Link>
+							</Menu.Item>
 						</MenuItemGroup>
 						<MenuItemGroup title="Setting">
 							<Menu.Item key="setting:5">

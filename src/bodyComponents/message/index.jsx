@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { actionCreators } from "./store";
 import { Tab, ListGroup, Row, Col } from "react-bootstrap";
 import { Icon } from "antd";
-import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import MessageList from "./components/MessageList";
+import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 
 class Message extends Component {
   
@@ -21,6 +22,7 @@ class Message extends Component {
                     style={{ float: "left", margin: "2.5%" }}
                   />
                   Message
+                  <span className="badge badge-primary badge-pill offset-1">14</span>
                 </ListGroup.Item>
                 <ListGroup.Item action href="#likes">
                   <Icon
@@ -45,7 +47,7 @@ class Message extends Component {
             <Col sm={8}>
               <Tab.Content>
                 <Tab.Pane eventKey="#message">
-                  <MessageList />
+                  <MessageList msgList={this.props.msgList} loginUser={this.props.loginUser}/>
                 </Tab.Pane>
                 <Tab.Pane eventKey="#likes">Likes</Tab.Pane>
                 <Tab.Pane eventKey="#favorite">Favorite</Tab.Pane>
@@ -61,7 +63,8 @@ class Message extends Component {
 
 const mapStateToProps = state => {
   return {
-    userList: state.getIn(["message", "userList"])
+    msgList: state.getIn(["message", "msgList"]),
+    loginUser:state.getIn(['login',"loginUser"])
   };
 };
 

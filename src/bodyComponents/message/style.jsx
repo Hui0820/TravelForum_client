@@ -1,20 +1,18 @@
 import styled from "styled-components";
 
-export const ChatContentWrap = styled.div`
+export const ChatContentWrap = styled.ul`
 	width:100%;
-	height:500px;
+	height:40vh;
     border-bottom:1px solid #7E7C91;
-    overflow-y:auto;
-	
-
-
+    overflow-y:scroll;
 `;
 
 export const ChatWrap = styled.div`
     width: 50%;
  	border:1px solid #7E7C91;
     margin:3% auto;
-    overflow:auto;
+    overflow:hidden;
+
    
 `;
 
@@ -26,14 +24,18 @@ export  const ChatHeader = styled.div`
     line-height:2rem;
     font-size:120%;
     color:#fff;   
+    display:block;
+    list-style:none;
 `;
 
 
-export const ReceiveMsg = styled.div`
+export const ReceiveMsg = styled.li`
     width:100%;
     flex-basis:auto;
     padding:1%;
     margin:1% 0;
+    display:block;
+    list-style:none;
     img{
         width:40px;
         height:40px;
@@ -50,7 +52,7 @@ export const ReceiveMsg = styled.div`
     }
 `;
 
-export const SendMsg = styled.div`
+export const SendMsg = styled.li`
     width:100%;
     flex-basis:auto;
     padding:1%;

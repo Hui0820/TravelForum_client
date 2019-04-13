@@ -23,16 +23,18 @@ class Chat extends Component {
 		this.setState({content:''});
 	}
 
-	componentDidMount(){
-		window.scroll(0,document.body.scrollHeight);
+	scrollToBottom = () => {
+		this.messagesEnd.scrollIntoView({ behavior: "smooth" });
 	}
-
-	componentUpdateMount(){
-		window.scroll(0,document.body.scrollHeight);
+	  
+	componentDidMount() {
+		this.scrollToBottom();
 	}
-
-
-
+	  
+	componentDidUpdate() {
+		this.scrollToBottom();
+	}
+	
 	render() {
 		const {loginUser,msgList} = this.props;
 		
@@ -61,18 +63,16 @@ class Chat extends Component {
 		):null;
 
 		return (
-			<ChatWrap>
+			<ChatWrap >
 					<ChatHeader>Chat with {Map(tartgetUser).get("username")}</ChatHeader>
-				<ChatContentWrap>
-				
-	
+				<ChatContentWrap >
 					{chatMsgs.map(msg=>{
 						if(myId === msg.to){ //msg to me
-						    return (
-								<ReceiveMsg key={msg._id}>
-									{targetAvatar}
-									<span>{msg.content}</span>
-								</ReceiveMsg>
+						    return (	
+									<ReceiveMsg key={msg._id}>
+										{targetAvatar}
+										<span>{msg.content}</span>
+									</ReceiveMsg>
 							)
 						}else{ //msg from me
 							return(
@@ -82,6 +82,7 @@ class Chat extends Component {
 							)
 						}
 					})}
+					<div ref={(el) => { this.messagesEnd = el; }}></div>
 				</ChatContentWrap>
 				<SenderWrap className="input-group mb-3">
 					<textarea 
@@ -93,8 +94,7 @@ class Chat extends Component {
 						onChange={e => this.setState({content:e.target.value})}
 					/>
 					<div className="input-group-append col-2">
-						
-						<button className="btn btn-outline-default col-12" onClick={this.handleSend.bind(this)}><span>🙈</span>Send</button>
+						<button className="btn btn-outline-default col-12" onClick={this.handleSend.bind(this)}>Send</button>
 					</div>
 				</SenderWrap>
 			</ChatWrap>

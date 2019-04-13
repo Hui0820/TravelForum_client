@@ -8,6 +8,7 @@ import {searchReducer} from "../bodyComponents/search/store";
 import {settingReducer} from "../publicComponents/setting/store";
 import {messageReducer} from "../bodyComponents/message/store";
 import {authorReducer} from "../bodyComponents/author/store";
+import {favoriteReducer} from "../bodyComponents/favorite/store";
 
 
 //guarantee the state is immutable
@@ -20,7 +21,8 @@ const reducer = combineReducers({
 	search:searchReducer,
 	setting:settingReducer,
 	message:messageReducer,
-	author:authorReducer
+	author:authorReducer,
+	favorite: favoriteReducer
 });
 
 export default reducer;

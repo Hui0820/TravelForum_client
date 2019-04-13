@@ -1,14 +1,21 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Link} from 'react-router-dom';
+import { Map,Seq } from "immutable";
 
 export default class MessageList extends Component {
     static propTypes = {
-        chatData: PropTypes.array.isRequired
+        msgList: PropTypes.object.isRequired,
+        loginUser:PropTypes.object.isRequired
     };
 
     render() {
-    const {chatData} = this.props;
+    const {msgList,loginUser} = this.props;
+    const {chatMsgs,users} = msgList;
+    
+    const  newUsers = Map(users).filter((v,k)=> v != loginUser._id);
+    console.log(newUsers);
+
         return (
             <div>
                 <div className="card mb-12" style={{maxWidth: '100%',margin: "10px 0"}}>
@@ -24,7 +31,7 @@ export default class MessageList extends Component {
                             <div className="card-body">
                                 <h5 className="card-title">
                                     Hui
-                                    <span className="badge badge-primary badge-pill offset-1">14</span>
+                                   
 
                                 </h5>
                                 <p className="card-text">This is a wider card with supporting text below as a

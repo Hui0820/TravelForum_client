@@ -15,6 +15,7 @@ import Search from "./bodyComponents/search";
 import Author from "./bodyComponents/author";
 import Message from "./bodyComponents/message";
 import Chat from "./bodyComponents/message/components/chat";
+import Favorite from "./bodyComponents/favorite/";
 import {Layout} from 'antd';
 
 
@@ -35,6 +36,7 @@ class App extends Component {
                             <Route path="/author/:user_id" exact component={Author}/>
                             <Route path="/message" exact component={Message}/>
                             <Route path="/chat/:userid" exact component={Chat}/>
+                            <Route path="/favorite/:user_id" exact component={Favorite}/>
                         </Layout.Content>
                         <Layout.Footer className="col-md-12"><Footer/></Layout.Footer>
                     </Fragment>
